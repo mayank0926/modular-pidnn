@@ -10,15 +10,13 @@ node_modules
 # Ignore SASS config files
 .sass-cache
 
+# Ignore VS Code files
+.vscode
+
+# Ignore python caches
+__pycache__/
+
+# Ignore temporary data generated
 data*.csv
 data*.mat
-__pycache__/
-.DS_store
-collected_data*
-debug_data-*
-Data*
-Models*
-Inferences/
-src/
-dummy*
 physics-informed-learning*

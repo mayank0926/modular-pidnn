@@ -1,0 +1,40 @@
+PARAMETERS:
+  NUM_INPUTS: 2
+  NUM_OUTPUTS: 1
+  TIME_STEP: 0.04 # 0.002*20
+
+SETTINGS:
+  render: False
+  save_collected: True
+
+MODELS:
+  PIDNN:
+    model_name: pidnn
+    num_layers: 8
+    neurons_per_layer: 40
+    training_is_border: False
+    take_differential_points: True
+    num_datadriven: -1 # To be filled by reader
+    num_collocation: -1 # Filled as collocation_multiplier*num_datadriven
+    collocation_multiplier: [2, 4, 6, 8, 10] # Hyperparameter for collocation points
+    differential_order: 3
+
+  FF:
+    model_name: ff
+    num_layers: 8
+    neurons_per_layer: 40
+    training_is_border: False
+    take_differential_points: False
+    num_datadriven: -1 # To be filled by reader
+    num_collocation: 0
+    collocation_multiplier: [0]
+
+DATASETS:
+  SIMULATION_00_03:
+    NUM_SNAPSHOTS: 1000
+    VX_START: 0.0
+    VX_END: 3.0
+    VX_NUM: 20
+
+    datadir: ./Data/simulation_00_03/
+    testdirs: []
