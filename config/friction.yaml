@@ -1,7 +1,11 @@
+# allcaps for parameters, allsmall for settings
+
 PARAMETERS:
   NUM_INPUTS: 2
   NUM_OUTPUTS: 1
   TIME_STEP: 0.04 # 0.002*20
+
+  INIT_STEPS: 20
 
 SETTINGS:
   render: False

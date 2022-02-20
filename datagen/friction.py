@@ -5,6 +5,17 @@ from tqdm import tqdm
 
 
 def datagen(config):
+    """Genrates data for frictional domain.
+
+    Uses the pip installed Gym environment in a loop to interface MuJoCo and collect data for the puck released with an initial velocity of vx.
+
+    Args:
+        config: Python dictionary representation of the config yaml file.
+
+    Returns:
+        Saves a file containing the data generated in a csv format.
+        Column headers - [time, initial_velocity, displacement]
+    """
     ts = np.arange(0, config['TIME_STEP'] *
                    config['NUM_SNAPSHOTS'], config['TIME_STEP'])
     vxs = np.linspace(config['VX_START'], config['VX_END'], config['VX_NUM'])

@@ -16,6 +16,10 @@ node_modules
 # Ignore python caches
 __pycache__/
 
+# Ignore generated datasets and trained models
+Datasets/
+Models/
+
 # Ignore temporary data generated
 data*.csv
 data*.mat

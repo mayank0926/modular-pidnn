@@ -68,8 +68,21 @@ def _iter(the_i1, the_i2, tv, gv, m1v, m2v, l1v, l2v):
 
 
 def datagen(config):
-    ts = np.arange(0, config['TIME_STEP']*config['NUM_SNAPSHOTS'], config['TIME_STEP'])
-    thetas = np.linspace(config['THETA_START'], config['THETA_END'], config['THETA_NUM'])
+    """Genrates data for double pendulum domain.
+
+    Uses odeint in a loop to generate data for various values of initial theta_1 and theta_2.
+
+    Args:
+        config: Python dictionary representation of the config yaml file.
+
+    Returns:
+        Saves a file containing the data generated in a csv format.
+        Column headers - [time, initial_theta1, initial_theta2, theta1_at_t, theta2_at_t]
+    """
+    ts = np.arange(0, config['TIME_STEP'] *
+                   config['NUM_SNAPSHOTS'], config['TIME_STEP'])
+    thetas = np.linspace(config['THETA_START'],
+                         config['THETA_END'], config['THETA_NUM'])
 
     num_cols = config['NUM_INPUTS'] + config['NUM_OUTPUTS']
     data = np.array([]).reshape(0, num_cols)
